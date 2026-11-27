@@ -16,7 +16,7 @@ export const AddressSchema = z.object({
 
 export const OrderSchema = z.object({
   id: z.string().startsWith("ord_"),
-  email: z.email(),
+  email: z.string().trim().pipe(z.email()),
   items: z
     .array(
       z.object({
