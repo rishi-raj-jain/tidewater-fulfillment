@@ -1,0 +1,14 @@
+{
+  "name": "@tidewater/shipkit",
+  "version": "1.4.0",
+  "description": "Small shipping and storefront helpers used across Tidewater Supply Co. services.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "exports": "./src/index.ts",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "test": "node --test --disable-warning=ExperimentalWarning \"test/**/*.test.ts\""
+  }
+}
