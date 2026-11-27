@@ -6,8 +6,13 @@ export function parseDuration(input: string): number {
   if (!/^(\d+[dhms])+$/.test(value)) {
     throw new SyntaxError(`Invalid duration: "${input}"`);
   }
+  const seen = new Set<string>();
   let total = 0;
   for (const [, amount, unit] of value.matchAll(/(\d+)([dhms])/g)) {
+    if (seen.has(unit)) {
+      throw new SyntaxError(`Invalid duration: "${input}"`);
+    }
+    seen.add(unit);
     total += Number(amount) * UNIT_MS[unit as keyof typeof UNIT_MS];
   }
   return total;
