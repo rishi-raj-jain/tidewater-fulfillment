@@ -1,6 +1,6 @@
 const UNIT_MS = { d: 86_400_000, h: 3_600_000, m: 60_000, s: 1_000 } as const;
 
-/** Parse a compact duration like "2d", "1h30m" or "45s" into milliseconds. */
+/** Parse a compact duration like "2d", "1h30m" or "45s" into milliseconds. Used for delivery windows. */
 export function parseDuration(input: string): number {
   const value = input.trim();
   if (!/^(\d+[dhms])+$/.test(value)) {

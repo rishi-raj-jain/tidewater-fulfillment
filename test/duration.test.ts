@@ -1,16 +1,15 @@
-import { test } from "node:test";
-import assert from "node:assert/strict";
-import { parseDuration } from "../src/index.ts";
+import { expect, test } from "bun:test";
+import { parseDuration } from "../src";
 
 test("parses single units", () => {
-  assert.equal(parseDuration("45s"), 45_000);
-  assert.equal(parseDuration("2d"), 172_800_000);
+  expect(parseDuration("45s")).toBe(45_000);
+  expect(parseDuration("2d")).toBe(172_800_000);
 });
 
 test("parses combined units", () => {
-  assert.equal(parseDuration("1h30m"), 5_400_000);
+  expect(parseDuration("1h30m")).toBe(5_400_000);
 });
 
 test("rejects malformed input", () => {
-  assert.throws(() => parseDuration("soon"), SyntaxError);
+  expect(() => parseDuration("soon")).toThrow(SyntaxError);
 });

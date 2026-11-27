@@ -1,14 +1,21 @@
 {
-  "name": "@tidewater/shipkit",
-  "version": "1.4.0",
-  "description": "Small shipping and storefront helpers used across Tidewater Supply Co. services.",
+  "name": "@tidewater/fulfillment",
+  "version": "2.3.0",
+  "description": "Order fulfillment helpers shared by Tidewater Supply Co.'s checkout and warehouse services.",
   "type": "module",
   "license": "Apache-2.0",
+  "module": "src/index.ts",
   "exports": "./src/index.ts",
-  "engines": {
-    "node": ">=22.18"
-  },
   "scripts": {
-    "test": "node --test --disable-warning=ExperimentalWarning \"test/**/*.test.ts\""
+    "test": "bun test",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "date-fns": "^4.4.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.5",
+    "typescript": "^7.0.2"
   }
 }

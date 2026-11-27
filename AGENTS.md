@@ -1,5 +1,7 @@
 # Working in this repo
 
-- Node 22.18 or later runs the TypeScript sources directly. There is no build step and no dependencies to install.
-- Run the tests with `npm test`. Tests use the built-in `node:test` runner and live in `test/`.
-- To reproduce a bug, add a failing test to the matching file in `test/` and run `npm test`.
+- Install dependencies with `bun install --frozen-lockfile`.
+- Run the tests with `bun test`. Tests use `bun:test` and live in `test/`, one file per module in `src/`.
+- Type-check with `bun run typecheck`.
+- To reproduce a bug, add a failing test to the matching file in `test/` and run `bun test <file>`.
+- Dates in tests are built with `new Date(year, monthIndex, day)` in local time, so results don't depend on the machine's timezone.

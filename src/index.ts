@@ -1,4 +1,5 @@
-export { chunk } from "./chunk.ts";
-export { formatPrice, type Currency } from "./price.ts";
-export { slugify } from "./slugify.ts";
-export { parseDuration } from "./duration.ts";
+export { batchOrders } from "./batching";
+export { estimateDelivery } from "./delivery";
+export { AddressSchema, OrderSchema, parseOrder, type Order } from "./orders";
+export { formatPrice, type Currency } from "./price";
+export { parseDuration } from "./duration";

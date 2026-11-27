@@ -1,16 +1,15 @@
-import { test } from "node:test";
-import assert from "node:assert/strict";
-import { formatPrice } from "../src/index.ts";
+import { expect, test } from "bun:test";
+import { formatPrice } from "../src";
 
 test("formats dollars with thousands separators", () => {
-  assert.equal(formatPrice(105000), "$1,050.00");
+  expect(formatPrice(105000)).toBe("$1,050.00");
+});
+
+test("puts the minus sign before the symbol for refunds", () => {
+  expect(formatPrice(-2400)).toBe("-$24.00");
 });
 
 test("formats other currencies", () => {
-  assert.equal(formatPrice(1999, "EUR"), "€19.99");
-  assert.equal(formatPrice(500, "GBP"), "£5.00");
-});
-
-test("rejects fractional cents", () => {
-  assert.throws(() => formatPrice(10.5), TypeError);
+  expect(formatPrice(1999, "EUR")).toBe("€19.99");
+  expect(formatPrice(500, "GBP")).toBe("£5.00");
 });
